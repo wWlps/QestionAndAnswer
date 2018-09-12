@@ -10,7 +10,7 @@ import Foundation
 
 struct Question{
     var text: String
-    var tipe: ResponseType
+    var type: ResponseType
     var answers: [Answer]
 }
 
