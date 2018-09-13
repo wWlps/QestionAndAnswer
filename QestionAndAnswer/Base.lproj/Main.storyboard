@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -216,19 +217,25 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="86f-fu-1l2">
+                                <rect key="frame" x="85" y="458" width="150" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vnT-br-s9x" firstAttribute="leading" secondItem="BLo-Wk-2LU" secondAttribute="leading" constant="16" id="7gO-t7-07V"/>
+                            <constraint firstItem="BLo-Wk-2LU" firstAttribute="bottom" secondItem="86f-fu-1l2" secondAttribute="bottom" constant="20" id="8Dv-C3-zFB"/>
                             <constraint firstItem="xm4-Lr-1E9" firstAttribute="centerY" secondItem="kac-BC-TzQ" secondAttribute="centerY" id="Bh8-eh-DBw"/>
                             <constraint firstItem="BLo-Wk-2LU" firstAttribute="trailing" secondItem="xm4-Lr-1E9" secondAttribute="trailing" constant="16" id="CrE-3f-RDp"/>
                             <constraint firstItem="vnT-br-s9x" firstAttribute="top" secondItem="VDA-kA-AUH" secondAttribute="bottom" constant="16" id="L3r-Co-mDz"/>
                             <constraint firstItem="cRS-2Q-hiE" firstAttribute="centerY" secondItem="kac-BC-TzQ" secondAttribute="centerY" id="O5f-BL-jdu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="86f-fu-1l2" secondAttribute="trailing" constant="69" id="Ota-C7-qkB"/>
                             <constraint firstItem="cRS-2Q-hiE" firstAttribute="top" secondItem="VDA-kA-AUH" secondAttribute="bottom" constant="4" id="Pde-qr-IMz"/>
                             <constraint firstItem="BLo-Wk-2LU" firstAttribute="trailing" secondItem="vnT-br-s9x" secondAttribute="trailing" constant="16" id="VOj-ml-mLR"/>
                             <constraint firstItem="VDA-kA-AUH" firstAttribute="top" secondItem="BLo-Wk-2LU" secondAttribute="top" constant="16" id="jhc-r0-wFE"/>
                             <constraint firstItem="cRS-2Q-hiE" firstAttribute="leading" secondItem="BLo-Wk-2LU" secondAttribute="leading" constant="16" id="mXK-E6-ZnV"/>
                             <constraint firstItem="vnT-br-s9x" firstAttribute="centerY" secondItem="kac-BC-TzQ" secondAttribute="centerY" id="rmf-fQ-tr9"/>
+                            <constraint firstItem="86f-fu-1l2" firstAttribute="leading" secondItem="kac-BC-TzQ" secondAttribute="leadingMargin" constant="69" id="u5v-XW-t50"/>
                             <constraint firstItem="BLo-Wk-2LU" firstAttribute="trailing" secondItem="VDA-kA-AUH" secondAttribute="trailing" constant="16" id="vrX-jY-2WM"/>
                             <constraint firstItem="VDA-kA-AUH" firstAttribute="leading" secondItem="BLo-Wk-2LU" secondAttribute="leading" constant="16" id="wz6-wh-oqs"/>
                             <constraint firstItem="xm4-Lr-1E9" firstAttribute="leading" secondItem="BLo-Wk-2LU" secondAttribute="leading" constant="16" id="xAj-HC-d1v"/>
@@ -238,8 +245,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="jow-O0-vqn"/>
                     <connections>
+                        <outlet property="multiLabel1" destination="g13-az-Ug2" id="Hvs-cd-jQP"/>
+                        <outlet property="multiLabel2" destination="Z5X-D8-mtm" id="75X-jq-Cjb"/>
+                        <outlet property="multiLabel3" destination="uTU-wd-xCo" id="p57-8v-Mjo"/>
+                        <outlet property="multiLabel4" destination="8No-W4-tuF" id="4Sr-7a-a8B"/>
                         <outlet property="multipleStackView" destination="cRS-2Q-hiE" id="r74-eS-PFD"/>
+                        <outlet property="questionLabel" destination="VDA-kA-AUH" id="4cX-un-RAl"/>
+                        <outlet property="questionProgressView" destination="86f-fu-1l2" id="gBk-qx-yuQ"/>
+                        <outlet property="rangedLabel1" destination="kw4-Ab-mgH" id="hDS-Fi-dyp"/>
+                        <outlet property="rangedLabel2" destination="E6y-np-5fb" id="cpf-gR-dWl"/>
                         <outlet property="rangetStackView" destination="xm4-Lr-1E9" id="fhG-bJ-EXE"/>
+                        <outlet property="singleButton1" destination="o4B-pP-aaY" id="U3Y-jY-lsL"/>
+                        <outlet property="singleButton2" destination="VHZ-QI-Xr8" id="x0i-8Y-MOA"/>
+                        <outlet property="singleButton3" destination="H4v-3C-uk2" id="cUr-8Q-8WZ"/>
+                        <outlet property="singleButton4" destination="lem-zN-0eA" id="bSG-ta-arK"/>
                         <outlet property="singleStackView" destination="vnT-br-s9x" id="GJA-iH-kpW"/>
                         <segue destination="6XF-6b-iY8" kind="show" identifier="restultSeque" id="FU8-N0-nWk"/>
                     </connections>
