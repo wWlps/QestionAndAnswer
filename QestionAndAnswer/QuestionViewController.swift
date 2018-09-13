@@ -10,6 +10,12 @@ import UIKit
 
 class QuestionViewController: UIViewController {
     
+    @IBOutlet weak var singleStackView: UIStackView!
+    
+    @IBOutlet weak var multipleStackView: UIStackView!
+    
+    @IBOutlet weak var rangetStackView: UIStackView!
+    
     var questions: [Question] = [
         Question(text: "Какая еда вам нравится?",
                  type: .single,
@@ -52,7 +58,22 @@ class QuestionViewController: UIViewController {
     }
     
     func updateUI() {
+        singleStackView.isHidden = true
+        multipleStackView.isHidden = true
+        rangetStackView.isHidden = true
         
+        navigationItem.title = "Вопрос №\(questuonIndex + 1)"
+        
+        let currentQuestion = questions[questuonIndex]
+        
+        switch currentQuestion.type {
+        case .single:
+            singleStackView.isHidden = false
+        case .multiple:
+            multipleStackView.isHidden = false
+        case .range:
+            rangetStackView.isHidden = false
+        }
     }
     
     
