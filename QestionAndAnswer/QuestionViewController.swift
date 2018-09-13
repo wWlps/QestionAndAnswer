@@ -58,7 +58,7 @@ class QuestionViewController: UIViewController {
             ])
     ]
     
-    var questuonIndex = 0
+    var questionIndex = 0
     
     
     override func viewDidLoad() {
@@ -77,19 +77,46 @@ class QuestionViewController: UIViewController {
         multipleStackView.isHidden = true
         rangetStackView.isHidden = true
         
-        navigationItem.title = "Вопрос №\(questuonIndex + 1)"
+        navigationItem.title = "Вопрос №\(questionIndex + 1)"
         
-        let currentQuestion = questions[questuonIndex]
+        let currentQuestion = questions[questionIndex]
+        let currentAnswers = currentQuestion.answers
+        let totalProgress = Float(questionIndex) / Float(questions.count)
+        
+        questionLabel.text = currentQuestion.text
+        questionProgressView.setProgress(totalProgress, animated: true)
         
         switch currentQuestion.type {
         case .single:
-            singleStackView.isHidden = false
+            updateSingleStack(using: currentAnswers)
         case .multiple:
-            multipleStackView.isHidden = false
+            updateMultipleStack(using: currentAnswers)
         case .range:
-            rangetStackView.isHidden = false
+            updateRangeStack(using: currentAnswers)
         }
     }
     
+    func updateSingleStack(using answers: [Answer]) {
+        singleStackView.isHidden = false
+        singleButton1.setTitle(answers[0].text, for: .normal)
+        singleButton2.setTitle(answers[1].text, for: .normal)
+        singleButton3.setTitle(answers[2].text, for: .normal)
+        singleButton4.setTitle(answers[3].text, for: .normal)
+    }
     
+    func updateMultipleStack(using answers: [Answer]) {
+        multipleStackView.isHidden = false
+        multiLabel1.text = answers[0].text
+         multiLabel2.text = answers[1].text
+         multiLabel3.text = answers[2].text
+         multiLabel4.text = answers[3].text
+    }
+
+    func updateRangeStack(using answers: [Answer]) {
+        rangetStackView.isHidden = false
+        rangedLabel1.text = answers.first?.text
+        rangedLabel2.text = answers.last?.text
+    }
+
+
 }
