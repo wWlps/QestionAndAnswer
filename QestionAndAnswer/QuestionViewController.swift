@@ -83,9 +83,7 @@ class QuestionViewController: UIViewController {
         }
         nextQuestion()
     }
-    
-    
-    
+
     
     @IBOutlet weak var questionProgressView: UIProgressView!
     
@@ -183,8 +181,6 @@ class QuestionViewController: UIViewController {
         rangedLabel2.text = answers.last?.text
     }
 
-    
-    
     func nextQuestion() {
         questionIndex += 1
         
@@ -193,6 +189,14 @@ class QuestionViewController: UIViewController {
         } else {
             performSegue(withIdentifier: "restultSeque", sender: nil)
         }
-
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "restultSeque" {
+            let resultsViewController = segue.destination as! ResultsViewController
+            resultsViewController.responces = answersChosen
+            questionIndex = 0
+            answersChosen = []
+            updateUI()
+        }
     }
 }
